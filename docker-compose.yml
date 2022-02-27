@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - dbdata:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    
+  app: 
+    depends_on:
+      - db
+    build: .
+    ports:
+      - 8080:80
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html:rw
+
+  phpmyadmin:
+    depends_on:
+      - db
+      - app
+    image: phpmyadmin:5.1
+    restart: unless-stopped
+    ports:
+      - 8888:80
+    environment:
+      - PMA_HOST=${DB_HOST}
+      - PMA_PORT=${DB_PORT}
+      - PMA_USER=${DB_USER}
+      - PMA_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  dbdata:

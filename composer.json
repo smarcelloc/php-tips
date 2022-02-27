@@ -1,0 +1,18 @@
+{
+    "name": "smarcelloc/php-tips",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "config": {
+        "vendor-dir": "vendor",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        },
+        "files": [
+            "src/config.php"
+        ]
+    }
+}
