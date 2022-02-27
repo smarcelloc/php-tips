@@ -17,14 +17,14 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN useradd -G www-data,root -u ${UID} -d /home/${USER} ${USER}
 
 # Install system dependencies
-#   RUN apt-get update
-# RUN apt-get install -y libzip-dev zip unzip
+RUN apt-get update
+RUN apt-get install -y libzip-dev zip unzip
 
 # Clear cache
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install extensions PHP (PERL)
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql zip
 
 # Set working directory and user
 WORKDIR ${WORKDIR}

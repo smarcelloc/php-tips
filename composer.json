@@ -14,5 +14,9 @@
         "files": [
             "src/config.php"
         ]
+    },
+    "require": {
+        "coffeecode/datalayer": "^1.1",
+        "vlucas/phpdotenv": "^5.4"
     }
 }
