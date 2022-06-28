@@ -17,6 +17,7 @@
     },
     "require": {
         "coffeecode/datalayer": "^1.1",
+        "dompdf/dompdf": "^2.0",
         "vlucas/phpdotenv": "^5.4"
     }
 }

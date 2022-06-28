@@ -4,6 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $path = [
     'DataLayer DB' => '/src/DataLayer/index.php',
+    'PDF DOM' => '/src/pdf/index.php'
 ];
 
 ?>
@@ -20,7 +21,7 @@ $path = [
 
 <body>
     <?php foreach ($path as $name => $link) : ?>
-        <a href="<?= $_ENV['APP_URL'] ?? 'http://localhost' ?><?= $link ?>"><?= $name ?></a>
+        <a href="<?= $_ENV['APP_URL'] ?? 'http://localhost' ?><?= $link ?>"><?= $name ?></a><br />
     <?php endforeach ?>
 </body>
 

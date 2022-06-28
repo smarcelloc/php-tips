@@ -5,6 +5,9 @@ define('DIR_ROOT', dirname(__FILE__, 2));
 $dotenv = Dotenv\Dotenv::createImmutable(DIR_ROOT);
 $dotenv->load();
 
+/**
+ * DATA LAYER
+ */
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
     "host" => $_ENV['DB_HOST'] ?? "localhost",

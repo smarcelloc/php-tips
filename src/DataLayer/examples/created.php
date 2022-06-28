@@ -18,4 +18,5 @@ if ($successSave) {
     echo 'User saved successfully';
 } else {
     echo 'Error the user was not saved successfully';
+    echo $user->fail();
 }
